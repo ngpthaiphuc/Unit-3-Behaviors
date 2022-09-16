@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
-    [SerializeField] float moveSpeed;
+    [SerializeField] float moveSpeed = 0.1f;
     [SerializeField] Vector3 moveDirection;
 
     float totalMoveDistance;
@@ -13,7 +13,7 @@ public class MoveObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        totalMoveDistance = 10f;
+        totalMoveDistance = 7f;
         startingLocation = gameObject.transform.position;
     }
 
@@ -27,11 +27,12 @@ public class MoveObject : MonoBehaviour
             FlipMoveDirection();
         }
 
-        //gameObject.transform.Translate(moveDirection * moveSpeed);
+        gameObject.transform.Translate(moveDirection * moveSpeed);
     }
 
     void FlipMoveDirection()
     {
+        startingLocation = gameObject.transform.position;
         moveDirection = -moveDirection;
     }
 
